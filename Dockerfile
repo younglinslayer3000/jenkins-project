@@ -5,6 +5,8 @@ COPY ibrahim.py .
 CMD ["python", "ibrahim.py"]
 
 USER root
-RUN groupadd -g 103  docker && usermod -aG docker jenkins
+RUN groupadd -g 103 docker \
+ && useradd -m -s /bin/bash jenkins \
+ && usermod -aG docker jenkins
 USER jenkins
 
