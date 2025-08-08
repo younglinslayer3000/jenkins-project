@@ -3,3 +3,7 @@ EXPOSE 8080
 WORKDIR /app
 COPY ibrahim.py .
 CMD ["python", "ibrahim.py"]
+
+USER root
+RUN groupadd -g <groupid>  docker && usermod -aG docker jenkins
+USER jenkins
